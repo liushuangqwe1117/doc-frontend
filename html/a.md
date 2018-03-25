@@ -1,0 +1,33 @@
+### 超链接a标签介绍
+
+![](/html/images/a1.png)
+
+### target属性
+- \_self：在当前窗口打开链接的文档
+- \_blank：在新窗口打开链接的文档
+- \_parent：在父窗口打开链接的文档，比如iframe嵌套了三层，在第三层a标签中配置target='\_parent'，则会在第二层iframe中打开链接的文档
+- \_top：在顶级窗口打开链接的文档，比如iframe嵌套了三层，在第三层a标签中配置target='\_top'，则会在当前窗口打开链接的文档，而不会在iframe中打开链接的文档
+- 浏览环境名称(一般为iframe名称)：直接示例,b.html网页会在名称为inner的iframe中打开
+  ```
+  <a href="b.html" target="inner">b</a>
+  <br/>
+  <iframe name="inner"></iframe>
+  ```
+
+### 创建文档内部锚点
+![](/html/images/a2.png)
+
+![](/html/images/a3.png)
+
+
+### 链接到Email地址或电话
+![](/html/images/a4.png)
+
+### 超链接-download
+```
+<!-- 下载pdf，而不会直接打开pdf -->
+<a href="html指南.pdf" download>html指南</a>
+
+<!-- 指定下载的文件名称 -->
+<a href="html指南.pdf" download="html.pdf">html指南</a>
+```
