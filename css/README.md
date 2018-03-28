@@ -10,6 +10,8 @@
 - Mozilla Firefox: https://developer.mozilla.org
 - Google Chrome: https://developers.google.com
 
+3. 参考网址：
+- http://www.css88.com/book/css/properties/index.htm
 
 ### 参考书籍
 - 基础入门（Head First系列）
