@@ -22,6 +22,6 @@
   * [其他元素](html/other.md)
 -----
 * [CSS介绍](README.md)
-
+  * [CSS语法](css/syntax.md)
 -----
 * [JavaScript介绍](README.md)

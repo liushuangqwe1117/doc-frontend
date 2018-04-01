@@ -216,7 +216,7 @@ div {
   ```
   margin:[<length>|<percentage>|auto]{1,4}
   ```
-- # 标注：表示可以出现一次或多次但是其多次出现必须以逗号分隔
+- \# 标注：表示可以出现一次或多次但是其多次出现必须以逗号分隔
   ```
   font-family：[ <family-name> | <generic-family> ] #
   ```
