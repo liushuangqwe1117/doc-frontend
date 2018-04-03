@@ -8,6 +8,11 @@
 - 伪元素选择器
 - 组合选择器
 - 分用选择器
+- 选择器继承
+- 选择器层叠
+- 选择器优先级
+- 选择器兼容性
+
 
 #### 简单选择器
 > 通过元素类型、class、id或*匹配一个或多个元素
@@ -371,3 +376,146 @@ p::first-line {
 <p>注意观察被选中的颜色</p>
 
 ```
+
+
+#### 组合选择器
+
+** 后代元素选择器 A B **  
+B是A的后代结点（B是A的子结点，或A的子节点的子节点）  
+```
+<style type="text/css">
+		div p {
+			height: 20px;background-color: yellow;
+		}
+</style>
+
+<div>
+		<p>这是第一个p元素</p>
+		<ul>
+			<li>
+				<p>这是第二个p元素</p>
+			</li>
+		</ul>
+</div>  
+```
+
+** 子选择器 A > B **  
+B是A的直接子结点  
+```
+<style type="text/css">
+		div > p {
+			height: 20px;background-color: yellow;
+		}
+</style>
+
+<div>
+		<p>这是第一个p元素</p>
+		<ul>
+			<li>
+				<p>这是第二个p元素</p>
+			</li>
+		</ul>
+</div>  
+```
+
+** 同级元素选择器 A + B **  
+B是A的下一个兄弟节点（AB有相同的父节点，并且B紧跟在A的后面）    
+```
+<style type="text/css">
+		div + p {
+			height: 20px;background-color: yellow;
+		}
+</style>
+
+<div>
+		<p>这是第一个p元素</p>
+		<div>这是DIV元素</div>
+		<p>这是第二个p元素</p>
+		<p>这是第三个p元素</p>
+	</div>  
+```
+
+
+** 同级元素选择器 A ~ B **  
+B是A之后的兄弟节点中的任意一个（AB有相同的父节点，B在A的后面，但不一定是紧挨着A）      
+```
+<style type="text/css">
+		div ~ p {
+			height: 20px;background-color: yellow;
+		}
+</style>
+
+<div>
+		<p>这是第一个p元素</p>
+		<div>这是DIV元素</div>
+		<p>这是第二个p元素</p>
+		<p>这是第三个p元素</p>
+	</div>  
+```
+
+#### 分用选择器   
+分用选择器是通过逗号分隔，将多组基本选择器或组合选择器组合而成  
+
+```
+h1,p {
+  padding:10px;
+}
+h1 {
+  color:red;
+}
+p {
+  color:blue;
+  text-indent:24px;
+}
+```
+
+#### 选择器继承  
+有些样式会被子元素继承，而有些不能被继承  
+例如：font-size和color可以被继承；width、border、padding不能被继承  
+
+CSS属性值继承相关的值：  
+- initial（初始）：初始默认值，在规范中定义  
+  例如：color初始值取决于浏览器，margin-top初始值为0  
+- inherit（继承）：继承直接父元素的属性值  
+  例如：将border设置成inherit，可继承直接父元素的border  
+- unset（未设置）：重置为未设置的状态，将表现为initial或inherit  
+
+![](/css/images/inherit.png)
+
+
+#### 选择器层叠
+层叠：浏览器对多个样式来源进行叠加，最终确定结果的过程。  
+层叠的结果：  
+- 相同属性会被覆盖：高优先级覆盖低优先级；优先级相同后面覆盖前面  
+- 不同属性将会叠加
+
+
+#### 选择器优先级   
+优先级：浏览器会根据优先级来决定给元素应用哪个样式  
+
+基于类型的优先级：内联 > ID选择器 > 伪类=属性选择器=类选择器 > 元素选择器 > 通用选择器(\*\) > 继承的样式  
+
+优先级计算：  
+a = 内联样式  
+b = ID选择器的数量  
+c = 类、伪类和属性选择器的数量  
+d = 标签选择器和伪元素选择器的数量  
+value = a*1000 + b*100 + c*10 +d  
+![](/css/images/calc.png)
+
+
+优先级例外：!important  
+使用!important将会覆盖任何其他声明  
+
+CSS优先级法则：  
+- 选择器都有一个权值，权值越大越优先
+- 当权值相等时，后出现的样式表设置要优先于先出现的样式表设置
+- 开发者设置的CSS的优先级要高于浏览器所设置的样式
+- 继承的CSS样式不如浏览器所设置的CSS样式
+- 标有!important规则的优先级最大  
+
+
+#### 浏览器兼容性   
+![](/css/images/compatibility.png)
+
+![](/css/images/compatibility2.png)
