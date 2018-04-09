@@ -1,0 +1,368 @@
+# 背景  
+
+### background-image
+语法：  
+`background-image：<bg-image> [ , <bg-image> ]*`   
+`<bg-image> = <image> | none`  
+
+示例：  
+```
+background-image:url(red.png),url(blue.png);
+background-color:green;
+```
+
+### background-repeat  
+语法：  
+`background-repeat：<repeat-style> [ , <repeat-style> ]*`  
+`<repeat-style> = repeat-x | repeat-y | [repeat | no-repeat | space | round]{1,2}`  
+
+示例：  
+```
+background-image:url(red.png);
+background-repeat:space;
+```
+![](/css/images/background-repeat.png)  
+```
+background-image:url(red.png);
+background-repeat:round;
+```
+![](/css/images/background-repeat2.png)  
+```
+background-image:url(red.png);
+background-repeat:no-repeat;
+```
+![](/css/images/background-repeat3.png)  
+```
+background-image:url(red.png);
+background-repeat:no-repeat repeat;
+```
+![](/css/images/background-repeat4.png)  
+```
+background-image:url(red.png),url(blue,png);
+background-repeat:no-repeat repeat,repeat-x;
+```
+![](/css/images/background-repeat5.png)
+
+### background-attachment  
+语法：  
+`background-attachment：<attachment> [ , <attachment> ]*`  
+`<attachment> = fixed | scroll | local`  
+
+
+示例：  
+```
+background-image:url(red.png),url(blue,png);
+background-attachment:local;
+```
+![](/css/images/background-attachment.png)
+
+
+### background-position  
+语法：  
+```
+background-position：<position> [ , <position> ]*
+
+<position> = [ left | center | right | top | bottom | <percentage> | <length> ] | [ left | center | right | <percentage> | <length> ] [ top | center | bottom | <percentage> | <length> ] | [ center | [ left | right ] [ <percentage> | <length> ]? ] && [ center | [ top | bottom ] [ <percentage> | <length> ]? ]
+
+```
+
+示例：  
+```
+background-image:url(red.png);
+background-repeat:no-repeat;
+background-position: 10px 20px;
+```
+![](/css/images/background-position.png)
+
+
+```
+background-image:url(red.png);
+background-repeat:no-repeat;
+background-position:right 10px top 20px;
+```
+![](/css/images/background-position2.png)
+
+### linear-gradient  
+语法：  
+```
+<linear-gradient> = linear-gradient([ [ <angle> | to <side-or-corner> ] ,]? <color-stop>[, <color-stop>]+)
+
+<side-or-corner> = [left | right] || [top | bottom]
+
+<color-stop> = <color> [ <length> | <percentage> ]?
+```
+
+示例：  
+```
+<button style="background-image: linear-gradient(red,blue);width: 500px;height: 100px;">按钮</button>
+```
+![](/css/images/linear-gradient.png)
+
+```
+<button style="background-image: linear-gradient(0deg,red,blue);width: 500px;height: 100px;">按钮</button>
+```
+![](/css/images/linear-gradient2.png)
+
+```
+<button style="background-image: linear-gradient(45deg,red,blue);width: 500px;height: 100px;">按钮</button>
+```
+![](/css/images/linear-gradient3.png)
+
+```
+<button style="background-image: linear-gradient(red,green,blue);width: 500px;height: 100px;">按钮</button>
+```
+![](/css/images/linear-gradient4.png)
+
+```
+<button style="background-image: linear-gradient(red,green 20%,blue);width: 500px;height: 100px;">按钮</button>
+```
+![](/css/images/linear-gradient5.png)
+
+
+### radial-gradient   
+语法：  
+```
+<radial-gradient> = radial-gradient([ [ <shape> || <size> ] [ at <position> ]? , | at <position>, ]?<color-stop>[ , <color-stop> ]+)
+
+<position> = [ <length>① | <percentage>① | left | center① | right ]? [ <length>② | <percentage>② | top | center② | bottom ]?
+
+<shape> = circle | ellipse
+
+<size> = <extent-keyword> | [ <circle-size> || <ellipse-size> ]
+
+<extent-keyword> = closest-side | closest-corner | farthest-side | farthest-corner
+
+<circle-size> = <length>
+
+<ellipse-size> = [ <length> | <percentage> ]{2}
+
+<shape-size> = <length> | <percentage>
+
+<color-stop> = <color> [ <length> | <percentage> ]?
+```
+取值：  
+```
+<position> 确定圆心的位置。如果提供2个参数，第一个表示横坐标，第二个表示纵坐标；如果只提供一个，第二值默认为50%，即center
+<percentage>①：
+用百分比指定径向渐变圆心的横坐标值。可以为负值。
+<length>①：
+用长度值指定径向渐变圆心的横坐标值。可以为负值。
+left：
+设置左边为径向渐变圆心的横坐标值。
+center①：
+设置中间为径向渐变圆心的横坐标值。
+right：
+设置右边为径向渐变圆心的横坐标值。
+<percentage>②：
+用百分比指定径向渐变圆心的纵坐标值。可以为负值。
+<length>②：
+用长度值指定径向渐变圆心的纵坐标值。可以为负值。
+top：
+设置顶部为径向渐变圆心的纵坐标值。
+center②：
+设置中间为径向渐变圆心的纵坐标值。
+bottom：
+设置底部为径向渐变圆心的纵坐标值。
+<shape> 确定圆的类型
+circle：
+指定圆形的径向渐变
+ellipse：
+指定椭圆形的径向渐变。
+<extent-keyword> circle | ellipse 都接受该值作为 size
+closest-side：
+指定径向渐变的半径长度为从圆心到离圆心最近的边
+closest-corner：
+指定径向渐变的半径长度为从圆心到离圆心最近的角
+farthest-side：
+指定径向渐变的半径长度为从圆心到离圆心最远的边
+farthest-corner：
+指定径向渐变的半径长度为从圆心到离圆心最远的角
+<circle-size> circle 接受该值作为 size
+<length>：
+用长度值指定正圆径向渐变的半径长度。不允许负值。
+<ellipse-size> ellipse 接受该值作为 size
+<length>：
+用长度值指定椭圆径向渐变的横向或纵向半径长度。不允许负值。
+<percentage>：
+用百分比指定椭圆径向渐变的横向或纵向半径长度。不允许负值。
+<color-stop> 用于指定渐变的起止颜色：
+<color>：
+指定颜色。
+<length>：
+用长度值指定起止色位置。不允许负值
+<percentage>：
+用百分比指定起止色位置。不允许负值
+```
+
+示例：  
+```
+<button style="background-image: radial-gradient(closest-side,red,blue);width: 500px;height: 500px;">按钮</button>
+```
+![](/css/images/radial-gradient.png)
+```
+<button style="background-image: radial-gradient(circle,red,blue);width: 500px;height: 500px;">按钮</button>
+```
+![](/css/images/radial-gradient2.png)
+```
+<button style="background-image: radial-gradient(100px 50px,red,blue);width: 500px;height: 500px;">按钮</button>
+```
+![](/css/images/radial-gradient3.png)
+
+### repeating-\*-gradient   
+
+```
+<button style="background-image: repeating-linear-gradient(red,blue 20px,red 40px);width: 500px;height: 500px;">按钮</button>
+```
+![](/css/images/repeating-gradient.png)
+
+
+```
+<button style="background-image: repeating-radial-gradient(red,blue 20px,red 40px);width: 500px;height: 500px;">按钮</button>
+```
+![](/css/images/repeating-gradient2.png)
+
+### background-origin    
+语法：  
+`background-origin：<box> [ , <box> ]*`  
+`<box> = border-box | padding-box | content-box `  
+默认值：padding-box
+
+
+取值：  
+padding-box：从padding区域（含padding）开始显示背景图像。  
+border-box：从border区域（含border）开始显示背景图像。  
+content-box：从content区域开始显示背景图像。  
+
+示例：  
+```
+background-image:url(red.png);  
+background-repeat:no-repeat;
+```
+![](/css/images/background-origin.png)
+
+```
+background-image:url(red.png);  
+background-repeat:no-repeat;
+background-origin:border-box;
+```
+![](/css/images/background-origin2.png)
+
+
+```
+background-image:url(red.png);  
+background-repeat:no-repeat;
+background-origin:content-box;
+```
+![](/css/images/background-origin3.png)
+
+
+### background-clip    
+语法：  
+`background-clip：<box> [ , <box> ]*`  
+`<box> = border-box | padding-box | content-box | text`  
+默认值：border-box
+
+取值：  
+padding-box：从padding区域（不含padding）开始向外裁剪背景。  
+border-box：从border区域（不含border）开始向外裁剪背景。  
+content-box：从content区域开始向外裁剪背景。  
+text：从前景内容的形状（比如文字）作为裁剪区域向外裁剪，如此即可实现使用背景作为填充色之类的遮罩效果   
+
+示例：  
+```
+background-image:url(red.png);  
+background-clip:border-box;
+```
+![](/css/images/background-clip.png)
+
+```
+background-image:url(red.png);  
+background-clip:padding-box;
+```
+![](/css/images/background-clip2.png)
+
+
+```
+background-image:url(red.png);  
+background-clip:content-box;
+```
+![](/css/images/background-clip3.png)
+
+
+### background-size    
+语法：  
+`background-size：<bg-size> [ , <bg-size> ]*`  
+`<bg-size> = [ <length> | <percentage> | auto ]{1,2} | cover | contain`  
+默认值：auto
+
+取值：  
+length：用长度值指定背景图像大小。不允许负值。  
+percentage：用百分比指定背景图像大小。不允许负值。  
+auto：背景图像的真实大小。  
+cover：将背景图像等比缩放到完全覆盖容器，背景图像有可能超出容器。  
+contain：将背景图像等比缩放到宽度或高度与容器的宽度或高度相等，背景图像始终被包含在容器内。  
+
+示例：  
+```
+background-image:url(red.png);  
+background-repeat:no-repeat;
+background-position:50% 50%;
+```
+![](/css/images/background-size.png)
+
+```
+background-image:url(red.png);  
+background-repeat:no-repeat;
+background-position:50% 50%;
+background-size:20px 20px;
+```
+![](/css/images/background-size2.png)
+
+```
+background-image:url(red.png);  
+background-repeat:no-repeat;
+background-position:50% 50%;
+background-size:cover;
+```
+![](/css/images/background-size3.png)
+
+```
+background-image:url(red.png);  
+background-repeat:no-repeat;
+background-position:50% 50%;
+background-size:contain;
+```
+![](/css/images/background-size4.png)
+
+### background    
+语法：  
+```
+background：[ <bg-layer>, ]* <final-bg-layer>
+
+<bg-layer> = <bg-image> || <position> [ / <bg-size> ]? || <repeat-style> || <attachment> || <box> || <box>
+
+<final-bg-layer> = <bg-image> || <position> [ / <bg-size> ]? || <repeat-style> || <attachment> || <box> || <box> || <' background-color '>
+```
+
+取值：  
+background-image：指定对象的背景图像。可以是真实图片路径或使用渐变创建的“背景图像”  
+background-position：指定对象的背景图像位置。  
+background-size：指定对象的背景图像的尺寸大小。  
+background-repeat：指定对象的背景图像如何铺排填充。  
+background-attachment：指定对象的背景图像是随对象内容滚动还是固定的。  
+background-origin：指定对象的背景图像显示的原点。  
+background-clip：指定对象的背景图像向外裁剪的区域。  
+background-color：指定对象的背景颜色。  
+
+
+示例：  
+```
+background:url(red.png) 0 0/20px 20px no-repeat;
+```
+![](/css/images/background.png)
+
+```
+background:url(red.png) 0 0/20px 20px no-repeat,
+url(blue,png) 50% 50%/contain no-repeat content-box green;
+```
+![](/css/images/background2.png)
