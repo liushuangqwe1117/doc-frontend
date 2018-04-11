@@ -159,25 +159,3 @@ border-box：
 ![](/css/images/outline.png)  
 
 ![](/css/images/outline2.png)  
-
-
-
-### 水平居中  
-```
-<style type="text/css">
-		.container {
-			height: 80px;
-			border: 1px solid black;
-		}
-		.special {
-			margin: 0 auto;
-			width: 200px;
-			height: 100%;
-			background: orange;
-		}
-</style>
-
-	<div class="container">
-		<p class="special"></p>
-	</div>
-```
