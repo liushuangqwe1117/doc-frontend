@@ -76,3 +76,14 @@
 
 - 编辑  
   ins,del
+
+
+### 元素属性
+- 全局属性  
+  比如：id,class属性，每个元素都有，所以属于去全局属性  
+
+- 元素属性   
+  比如：`<input disabled="disabled">`中disabled不是每个元素都有的属性
+
+- 自定义属性：以`data-`为前缀，避免与HTML未来属性名冲突    
+  比如：`<input data-creator="admin">`  
